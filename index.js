@@ -1,5 +1,7 @@
+const cors = require('cors');
 var express = require('express')
 var app = express();
+app.use(cors());
 var crypto = require('crypto');
 var mongo = require('mongoose')
 var User = require('./models/index.js');
@@ -22,10 +24,11 @@ app.get('/', function(req, res) {
     res.render('insert');
 })
 app.post('/insert', function(req, res) {
+    console.log('hi bro');
     var encode = crypto.createHmac('sha256', secert)
         .update(req.body.password)
         .digest('hex');
-
+    // res.send(req.body.email);
     var ur = new User({
         _id: new mongo.Types.ObjectId(),
         name: req.body.name,
@@ -46,16 +49,10 @@ app.post('/insert', function(req, res) {
 
 app.get('/show', function(req, res) {
 
-    User.find({
-            where: {
-                name: ['Gage Fischer', 'Callie Guy'],
-                // ['name', 'ASC'],
-            },
-        },
-        function(err, data) {
+    User.find({}, function(err, data) {
 
-            res.render('show', { data: data });
-        })
+        res.status(200).json({ success: true, data, msg: "User List" });
+    })
 
 });
 

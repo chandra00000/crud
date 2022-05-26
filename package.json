@@ -1,7 +1,6 @@
 {
   "name": "crud",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,11 +10,21 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.4",
     "nodemon": "^2.0.16"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chandra00000/crud.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chandra00000/crud/issues"
+  },
+  "homepage": "https://github.com/chandra00000/crud#readme",
+  "description": ""
 }
